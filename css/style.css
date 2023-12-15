@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+    /* width: 100%;
+    height: 100%; */
+    overflow-y: hidden;
+}
+
+
+
+#section-welcome {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background-image: url(../images/calendrier-noel.jpg);
+    background-size: cover;
+}
+
+.section-welcome-img {
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 2px 1px 5px black;
+}
+
+#section-welcome h1 {
+    position: absolute;
+    font-size: 50px;
+}
+
+#section-welcome button {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 50px;
+}
+
+#section-calendar {
+    height: 100vh;
+    width: 100vw;
+    background-image: url(../images/calendrier-noel.jpg);
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+     display: flex;
+      position: relative;
+      
+}
+
+#calendar-card {
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    opacity: 0;
+}
+
+.backcard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.noel-gif {
+    background-size: cover;
+
+}
