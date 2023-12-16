@@ -19,32 +19,79 @@ console.log(welcomeImg)
         sectionWelcome.style.display = "none";
         sectionCalendar.style.display = "flex";
         // sectionCalendar.style.transition = "opacity 2s ease";
-        
         calendarCard.style.transition = "opacity 2s ease";
         calendarCard.style.opacity = 1;
       }, "2000");
  });
 
-
+// La boucle de l'Enfer
 for (let i = 1 ; i < 26; i++) {
     const dayCard = document.createElement ("div");
     dayCard.classList = "backcard";
+    dayCard.id = `day-card${i}`;
     // dayCard.dataset.gif = gif
     dayCard.style.width ="100px";
-    dayCard.style.height = "150px";
+    dayCard.style.height = "100px";
     dayCard.style.backgroundColor = "rgba(255,255,255,0.7)";
     dayCard.innerText = [i];
     calendarCard.appendChild(dayCard);
+
+    if (i === day) {
+        dayCard.style.color = "green";
+        dayCard.addEventListener("mouseover", function(){
+            dayCard.style.backgroundColor = "rgba(100,255,100,0.7)";
+            dayCard.style.color = "white"
+            dayCard.style.fontSize = "75px"
+        });
+        dayCard.addEventListener("mouseout", function () {
+            dayCard.style.backgroundColor = "rgba(255,255,255,0.7)";
+            dayCard.style.color = "green";
+            dayCard.style.fontSize = "40px"
+        });
+    }else if (i > day){
+        dayCard.style.color = "red";
+        dayCard.addEventListener("mouseover", function(){
+            dayCard.style.backgroundColor = "rgba(255,0,0,0.7)";
+            dayCard.style.color = "black"
+            dayCard.style.fontSize = "75px"
+            dayCard.addEventListener("mouseout", function () {
+                dayCard.style.backgroundColor = "rgba(255,255,255,0.7)";
+                dayCard.style.color = "red";
+                dayCard.style.fontSize = "40px"
+            });
+        });
+        
+    }else {
+        dayCard.addEventListener("mouseover", function(){
+            dayCard.style.backgroundColor = "rgba(100,255,100,0.7)";
+            dayCard.style.color = "black"
+            dayCard.style.fontSize = "75px"
+        });
+        dayCard.addEventListener("mouseout", function () {
+            dayCard.style.backgroundColor = "rgba(255,255,255,0.7)";
+            dayCard.style.color = "black";
+            dayCard.style.fontSize = "40px"
+        });
+    }
+
     dayCard.addEventListener("click", function(){
         if (dayCard.innerText == i &&  i <= day ) {
             dayCard.style.backgroundImage = `url('images/gif/gif${i}.gif')`;
             dayCard.innerText = "";
         }
     });
-    
-     //arrayGif.push(createBackCard.innerText);
+    }
 
-}
+
+
+
+    // const backCard = document.getElementsByClassName("backcard");
+    // for (let y = 0; y < backCard.length; y ++) {
+    //     if (day = backCardy) {
+    //         backCard.style.color = "black";
+    //     }
+    // };
+
 console.log (day);
 // function flipCard (flip) {
 //     const createBackCard = flip.target

@@ -10,9 +10,13 @@ body {
     /* width: 100%;
     height: 100%; */
     overflow-y: hidden;
+    font-family: 'Mountains of Christmas', serif;
 }
 
-
+h1 {
+    position: absolute;
+    color: white;
+}
 
 #section-welcome {
     height: 100vh;
@@ -27,7 +31,7 @@ body {
 .section-welcome-img {
     width: 100%;
     object-fit: cover;
-    box-shadow: 2px 1px 5px black;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 #section-welcome h1 {
@@ -42,8 +46,28 @@ body {
     transform: translate(-50%, -50%);
     width: 100px;
     height: 50px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
+    border-radius: 180px;
+    padding: 50px;
+    text-align: center;
+    background-color: green;
+    display: grid;
+    place-content: center;
+    animation-duration: 1s;
+    animation-name: clignoter;
+    animation-iteration-count: infinite;
+    transition: 5s ease;
 }
+@keyframes clignoter {
+    0%   { opacity:1; }
+    40%   {opacity:0; }
+    100% { opacity:1; }
+  }
 
+  #section-welcome button:hover {
+    cursor: pointer;
+
+  }
 #section-calendar {
     height: 100vh;
     width: 100vw;
@@ -58,13 +82,74 @@ body {
 
 #calendar-card {
     width: 1200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 20px;
     opacity: 0;
+    /* grid-template-areas: "1 1 1 1 1" */
+    grid-template-areas: 
+    ". . . . card1 . . . ."
+    ". . . card2 card3 card4 . . ."
+    ". . card5 card6 card7 card8 card9 . ."
+    ". card10 card11 card12 card13 card14 card15 card16 ."
+    "card17 card18 card19 card20 card21 card22 card23 card24 card25";
+                            
+    
 }
+
+#day-card1 { grid-area: card1; }
+#day-card2 { grid-area: card2; }
+#day-card3 { grid-area: card3; }
+#day-card4 { grid-area: card4; }
+#day-card5 { grid-area: card5; }
+#day-card6 { grid-area: card6; }
+#day-card7 { grid-area: card7; }
+#day-card8 { grid-area: card8; }
+#day-card9 { grid-area: card9; }
+#day-card10 { grid-area: card10; }
+#day-card11 { grid-area: card11; }
+#day-card12 { grid-area: card12; }
+#day-card13 { grid-area: card13; }
+#day-card14 { grid-area: card14; }
+#day-card15 { grid-area: card15; }
+#day-card16 { grid-area: card16; }
+#day-card17 { grid-area: card17; }
+#day-card18 { grid-area: card18; }
+#day-card19 { grid-area: card19; }
+#day-card20 { grid-area: card20; }
+#day-card21 { grid-area: card21; }
+#day-card22 { grid-area: card22; }
+#day-card23 { grid-area: card23; }
+#day-card24 { grid-area: card24; }
+#day-card25 { grid-area: card25; }
+/* 
+#day-card1 { grid-area: 1 / 6 / 2 / 7; }
+#day-card2 { grid-area: 2 / 5 / 3 / 6; }
+#day-card3 { grid-area: 2 / 6 / 3 / 7; }
+#day-card4 { grid-area: 2 / 7 / 3 / 8; }
+#day-card5 { grid-area: 3 / 4 / 4 / 5; }
+#day-card6 { grid-area: 3 / 5 / 4 / 6; }
+#day-card7 { grid-area: 3 / 6 / 4 / 7; }
+#day-card8 { grid-area: 3 / 7 / 4 / 8; }
+#day-card9 { grid-area: 3 / 8 / 4 / 9; }
+#day-card10 { grid-area: 4 / 3 / 5 / 4; }
+#day-card11 { grid-area: 4 / 4 / 5 / 5; }
+#day-card12 { grid-area: 4 / 5 / 5 / 6; }
+#day-card13 { grid-area: 4 / 6 / 5 / 7; }
+#day-card14 { grid-area: 4 / 7 / 5 / 8; }
+#day-card15 { grid-area: 4 / 8 / 5 / 9; }
+#day-card16 { grid-area: 4 / 9 / 5 / 10; }
+#day-card17 { grid-area: 5 / 2 / 6 / 3; }
+#day-card18 { grid-area: 5 / 3 / 6 / 4; }
+#day-card19 { grid-area: 5 / 4 / 6 / 5; }
+#day-card20 { grid-area: 5 / 5 / 6 / 6; }
+#day-card21 { grid-area: 5 / 6 / 6 / 7; }
+#day-card22 { grid-area: 5 / 7 / 6 / 8; }
+#day-card23 { grid-area: 5 / 8 / 6 / 9; }
+#day-card24 { grid-area: 5 / 9 / 6 / 10; }
+#day-card25 { grid-area: 5 / 10 / 6 / 11; }  */
 
 .backcard {
     display: flex;
@@ -72,8 +157,15 @@ body {
     align-items: center;
     background-size: cover;
     border-radius: 10px;
+    font-size: 40px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    transition: .5s;
 }
 
+.backcard:hover {
+    transform: scale(1.20);
+    cursor: pointer;
+}
 .noel-gif {
     background-size: cover;
 
