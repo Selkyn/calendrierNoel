@@ -76,12 +76,13 @@ for (let i = 1 ; i < 26; i++) {
             dayCard.style.backgroundColor = "rgba(255,0,0,0.7)";
             dayCard.style.color = "black"
             dayCard.style.fontSize = "75px"
-            dayCard.addEventListener("mouseout", function () {
-                dayCard.style.backgroundColor = "rgba(255,255,255,0.7)";
-                dayCard.style.color = "red";
-                dayCard.style.fontSize = "40px"
-            });
         });
+        dayCard.addEventListener("mouseout", function () {
+            dayCard.style.backgroundColor = "rgba(255,255,255,0.7)";
+            dayCard.style.color = "red";
+            dayCard.style.fontSize = "40px"
+         });
+        
         
     }else {
         dayCard.addEventListener("mouseover", function(){
