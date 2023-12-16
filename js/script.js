@@ -3,6 +3,7 @@ const sectionWelcome = document.getElementById("section-welcome");
 const calendarCard = document.getElementById("calendar-card");
 const sectionCalendar = document.getElementById("section-calendar");
 const welcomeImg = document.getElementsByClassName("section-welcome-img");
+const closeBtn = document.getElementById("close-btn");
  //const arrayGif = [];
 const nowTime = new Date()
 const day = nowTime.getDate();
@@ -15,6 +16,7 @@ console.log(welcomeImg)
         welcomeImg[i].style.transform = i === 0 ? "translateX(-100%)" : "translateX(100%)";
     }
     openBtn.style.display = "none";
+    closeBtn.style.display = "grid";
     setTimeout(() => {
         sectionWelcome.style.display = "none";
         sectionCalendar.style.display = "flex";
@@ -24,11 +26,30 @@ console.log(welcomeImg)
       }, "2000");
  });
 
+ closeBtn.addEventListener("click", function() {
+    for (let i = 0; i < welcomeImg.length; i++) {
+        setTimeout(() => {
+        // welcomeImg[i].style.margin = "0";
+        openBtn.style.display = "grid";
+        welcomeImg[i].style.transition = "transform 2s ease";
+        welcomeImg[i].style.transition = "transform 2s ease";
+        welcomeImg[i].style.transform = i === 0 ? "translateX(0%)" : "translateX(0%)";
+    }, "500");
+    }
+
+    closeBtn.style.display = "none";
+        sectionWelcome.style.display = "flex";
+        sectionCalendar.style.display = "none";
+        // sectionCalendar.style.transition = "opacity 2s ease";
+        calendarCard.style.transition = "opacity 2s ease";
+        calendarCard.style.opacity = 1;
+ })
+
 // La boucle de l'Enfer
 for (let i = 1 ; i < 26; i++) {
     const dayCard = document.createElement ("div");
     dayCard.classList = "backcard";
-    dayCard.id = `day-card${i}`;
+    dayCard.classList.add(`day-card${i}`);
     // dayCard.dataset.gif = gif
     dayCard.style.width ="100px";
     dayCard.style.height = "100px";
@@ -38,6 +59,7 @@ for (let i = 1 ; i < 26; i++) {
 
     if (i === day) {
         dayCard.style.color = "green";
+        dayCard.id += "day-card-today";
         dayCard.addEventListener("mouseover", function(){
             dayCard.style.backgroundColor = "rgba(100,255,100,0.7)";
             dayCard.style.color = "white"

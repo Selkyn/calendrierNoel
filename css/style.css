@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+
 body {
     display: grid;
     place-items: center;
@@ -9,7 +10,7 @@ body {
     height: 100vh;
     /* width: 100%;
     height: 100%; */
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
     font-family: 'Mountains of Christmas', serif;
 }
 
@@ -56,18 +57,29 @@ h1 {
     animation-duration: 1s;
     animation-name: clignoter;
     animation-iteration-count: infinite;
-    transition: 5s ease;
+    transition: 1s ease;
+    
 }
-@keyframes clignoter {
-    0%   { opacity:1; }
-    40%   {opacity:0; }
-    100% { opacity:1; }
-  }
 
-  #section-welcome button:hover {
+@keyframes clignoter {
+    0% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#section-welcome button:hover {
     cursor: pointer;
 
-  }
+}
+
 #section-calendar {
     height: 100vh;
     width: 100vw;
@@ -75,9 +87,10 @@ h1 {
     background-size: cover;
     justify-content: center;
     align-items: center;
-     display: flex;
-      position: relative;
-      
+    display: flex;
+    position: relative;
+    display: none;
+
 }
 
 #calendar-card {
@@ -89,41 +102,143 @@ h1 {
     gap: 20px;
     opacity: 0;
     /* grid-template-areas: "1 1 1 1 1" */
-    grid-template-areas: 
-    ". . . . card1 . . . ."
-    ". . . card2 card3 card4 . . ."
-    ". . card5 card6 card7 card8 card9 . ."
-    ". card10 card11 card12 card13 card14 card15 card16 ."
-    "card17 card18 card19 card20 card21 card22 card23 card24 card25";
-                            
-    
+    grid-template-areas:
+        ". . . . card1 . . . ."
+        ". . . card2 card3 card4 . . ."
+        ". . card5 card6 card7 card8 card9 . ."
+        ". card10 card11 card12 card13 card14 card15 card16 ."
+        "card17 card18 card19 card20 card21 card22 card23 card24 card25";
+
+
 }
 
-#day-card1 { grid-area: card1; }
-#day-card2 { grid-area: card2; }
-#day-card3 { grid-area: card3; }
-#day-card4 { grid-area: card4; }
-#day-card5 { grid-area: card5; }
-#day-card6 { grid-area: card6; }
-#day-card7 { grid-area: card7; }
-#day-card8 { grid-area: card8; }
-#day-card9 { grid-area: card9; }
-#day-card10 { grid-area: card10; }
-#day-card11 { grid-area: card11; }
-#day-card12 { grid-area: card12; }
-#day-card13 { grid-area: card13; }
-#day-card14 { grid-area: card14; }
-#day-card15 { grid-area: card15; }
-#day-card16 { grid-area: card16; }
-#day-card17 { grid-area: card17; }
-#day-card18 { grid-area: card18; }
-#day-card19 { grid-area: card19; }
-#day-card20 { grid-area: card20; }
-#day-card21 { grid-area: card21; }
-#day-card22 { grid-area: card22; }
-#day-card23 { grid-area: card23; }
-#day-card24 { grid-area: card24; }
-#day-card25 { grid-area: card25; }
+.day-card1 {
+    grid-area: card1;
+}
+
+.day-card2 {
+    grid-area: card2;
+}
+
+.day-card3 {
+    grid-area: card3;
+}
+
+.day-card4 {
+    grid-area: card4;
+}
+
+.day-card5 {
+    grid-area: card5;
+}
+
+.day-card6 {
+    grid-area: card6;
+}
+
+.day-card7 {
+    grid-area: card7;
+}
+
+.day-card8 {
+    grid-area: card8;
+}
+
+.day-card9 {
+    grid-area: card9;
+}
+
+.day-card10 {
+    grid-area: card10;
+}
+
+.day-card11 {
+    grid-area: card11;
+}
+
+.day-card12 {
+    grid-area: card12;
+}
+
+.day-card13 {
+    grid-area: card13;
+}
+
+.day-card14 {
+    grid-area: card14;
+}
+
+.day-card15 {
+    grid-area: card15;
+}
+
+.day-card16 {
+    grid-area: card16;
+}
+
+.day-card17 {
+    grid-area: card17;
+}
+
+.day-card18 {
+    grid-area: card18;
+}
+
+.day-card19 {
+    grid-area: card19;
+}
+
+.day-card20 {
+    grid-area: card20;
+}
+
+.day-card21 {
+    grid-area: card21;
+}
+
+.day-card22 {
+    grid-area: card22;
+}
+
+.day-card23 {
+    grid-area: card23;
+}
+
+.day-card24 {
+    grid-area: card24;
+}
+
+.day-card25 {
+    grid-area: card25;
+}
+
+#day-card-today {
+    animation : wiggle 2s linear infinite;
+}
+
+@keyframes wiggle {
+    0%, 7% {
+        transform: rotate(0);
+    }
+    15%{
+        transform: rotateZ(-15deg)
+    }
+    20% {
+        transform: rotateZ(10deg);
+      }
+      25% {
+        transform: rotateZ(-10deg);
+      }
+      30% {
+        transform: rotateZ(6deg);
+      }
+      35% {
+        transform: rotateZ(-4deg);
+      }
+      40%, 100% {
+        transform: rotateZ(0);
+      }
+}
 /* 
 #day-card1 { grid-area: 1 / 6 / 2 / 7; }
 #day-card2 { grid-area: 2 / 5 / 3 / 6; }
@@ -165,6 +280,13 @@ h1 {
 .backcard:hover {
     transform: scale(1.20);
     cursor: pointer;
+}
+
+#close-btn {
+    /* display: none; */
+    position: absolute;
+    left: 100px;
+    top: 100px;
 }
 .noel-gif {
     background-size: cover;
