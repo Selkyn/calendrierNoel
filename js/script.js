@@ -4,6 +4,7 @@ const calendarCard = document.getElementById("calendar-card");
 const sectionCalendar = document.getElementById("section-calendar");
 const welcomeImg = document.getElementsByClassName("section-welcome-img");
 const closeBtn = document.getElementById("close-btn");
+const pereNoel = document.getElementById("pere-noel");
  //const arrayGif = [];
 const nowTime = new Date()
 const day = nowTime.getDate();
@@ -15,34 +16,42 @@ console.log(welcomeImg)
         welcomeImg[i].style.transition = "transform 2s ease";
         welcomeImg[i].style.transform = i === 0 ? "translateX(-100%)" : "translateX(100%)";
     }
+    pereNoel.style.transition = "opacity 2.5s ease";
+    pereNoel.style.opacity = 0;
     openBtn.style.display = "none";
     closeBtn.style.display = "grid";
     setTimeout(() => {
         sectionWelcome.style.display = "none";
         sectionCalendar.style.display = "flex";
         // sectionCalendar.style.transition = "opacity 2s ease";
+        setTimeout(() => {
         calendarCard.style.transition = "opacity 2s ease";
         calendarCard.style.opacity = 1;
+        }, "500");
       }, "2000");
  });
 
  closeBtn.addEventListener("click", function() {
-    for (let i = 0; i < welcomeImg.length; i++) {
-        setTimeout(() => {
-        // welcomeImg[i].style.margin = "0";
-        openBtn.style.display = "grid";
-        welcomeImg[i].style.transition = "transform 2s ease";
-        welcomeImg[i].style.transition = "transform 2s ease";
-        welcomeImg[i].style.transform = i === 0 ? "translateX(0%)" : "translateX(0%)";
-    }, "500");
-    }
-
+    pereNoel.style.transition = "opacity 2.5s ease";
+    pereNoel.style.opacity = 1;
+    calendarCard.style.transition = "opacity 1s ease";
+    calendarCard.style.opacity = 0;
     closeBtn.style.display = "none";
-        sectionWelcome.style.display = "flex";
-        sectionCalendar.style.display = "none";
-        // sectionCalendar.style.transition = "opacity 2s ease";
-        calendarCard.style.transition = "opacity 2s ease";
-        calendarCard.style.opacity = 1;
+    for (let i = 0; i < welcomeImg.length; i++) {
+        
+        setTimeout(() => {
+            sectionWelcome.style.display = "flex";
+            setTimeout(() => {
+        // welcomeImg[i].style.margin = "0";
+                sectionCalendar.style.display = "none";
+                welcomeImg[i].style.transition = "transform 2s ease";
+                welcomeImg[i].style.transform = "translateX(0%)"
+                setTimeout(() => {
+                    openBtn.style.display = "grid";
+                }, "2000");
+            }, "1000");
+        }, "1000");
+    }
  })
 
 // La boucle de l'Enfer
@@ -106,7 +115,7 @@ for (let i = 1 ; i < 26; i++) {
     }
 
 
-
+    console.log (day);
 
     // const backCard = document.getElementsByClassName("backcard");
     // for (let y = 0; y < backCard.length; y ++) {
@@ -115,7 +124,7 @@ for (let i = 1 ; i < 26; i++) {
     //     }
     // };
 
-console.log (day);
+
 // function flipCard (flip) {
 //     const createBackCard = flip.target
 //     for (let i = 0; i <= 26; i++) {
